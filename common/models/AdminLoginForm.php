@@ -37,6 +37,7 @@ class AdminLoginForm extends Model
     			'username'=>'用户名',
     			'password'=>'密码',
     			'rememberMe'=>'记住密码',
+            'iadd'=>'我添加的',// add by zyy 2017年8月26日
     	];
     }
     /**

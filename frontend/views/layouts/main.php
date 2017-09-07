@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '魏曦教你学Yii2.0',
+        'brandLabel' => 'YY学Yii2.0',
     	'brandOptions'=> ['style'=>'color:yellow;font-size:23px'],
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
@@ -36,13 +36,15 @@ AppAsset::register($this);
         ],
     ]);
     $menuItems = [
-      
+        ['label' => '填写调查表', 'url' => ['/site/diaocha']],
         ['label' => '关于我们', 'url' => ['/site/about']],
         ['label' => '联系我们', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => '注册', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => '登录', 'url' => ['/site/login']];
+        $menuItems[] = ['label' => '调查表', 'url' => ['/site/diaocha']];//填写调查表 add by zyy 2017年9月5日
+
     } else {
         $menuItems[] = '<li>'
             . Html::beginForm(['/site/logout'], 'post')
@@ -71,7 +73,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; 魏曦教你学Yii2.0 <?= date('Y') ?></p>
+        <p class="pull-left">&copy; YY教你学Yii2.0 <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>

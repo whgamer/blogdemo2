@@ -1,8 +1,8 @@
 <VirtualHost *:80>
        ServerName blogdemo2.com
-       DocumentRoot "/Users/michaelweixi/WWWRoot/blogdemo2/frontend/web/"
+       DocumentRoot "/www/blogdemo2/frontend/web/"
 
-       <Directory "/Users/michaelweixi/WWWRoot/blogdemo2/frontend/web/">
+       <Directory "/www/blogdemo2/frontend/web/">
            # use mod_rewrite for pretty URL support
            RewriteEngine on
            # If a directory or a file exists, use the request directly
@@ -20,9 +20,9 @@
 
    <VirtualHost *:80>
        ServerName admin.blogdemo2.com
-       DocumentRoot "/Users/michaelweixi/WWWRoot/blogdemo2/backend/web/"
+       DocumentRoot "/www/blogdemo2/backend/web/"
 
-       <Directory "/Users/michaelweixi/WWWRoot/blogdemo2/backend/web/">
+       <Directory "/www/blogdemo2/backend/web/">
            # use mod_rewrite for pretty URL support
            RewriteEngine on
            # If a directory or a file exists, use the request directly

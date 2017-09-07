@@ -6,7 +6,7 @@ use Yii;
 use yii\base\Model;
 
 /**
- * ContactForm is the model behind the contact form.
+ * ContactForm is the model behind the contact form.  这个类定义了方法
  */
 class ContactForm extends Model
 {
@@ -15,6 +15,7 @@ class ContactForm extends Model
     public $subject;
     public $body;
     public $verifyCode;
+    public $submitDatetime;//  add by zyy 2017年8月31日
 
 
     /**
@@ -29,16 +30,21 @@ class ContactForm extends Model
             ['email', 'email'],
             // verifyCode needs to be entered correctly
             ['verifyCode', 'captcha'],
+            ['submitDatetime', 'date'],
         ];
     }
 
     /**
-     * @inheritdoc
+     * @inheritdoc设置 显示姓名
      */
     public function attributeLabels()
     {
         return [
-            'verifyCode' => 'Verification Code',
+            'verifyCode' => '验证码Verification Code',
+            'name' => '姓名',
+            'subject' => '主题',
+            'body' => '详细内容',
+            'submitDatetime' => '提交日期',
         ];
     }
 

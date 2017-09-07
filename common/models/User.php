@@ -73,6 +73,7 @@ class User extends ActiveRecord implements IdentityInterface
     			'status' => '状态',
     			'created_at' => '创建时间',
     			'updated_at' => '修改时间',
+            'invitecode' => '验证码',
     	];
     }
     /**

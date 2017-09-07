@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
 use yii\captcha\Captcha;
+use yii\datepicker\DatePicker;//  add buy zyy 2017年8月31日 添加日期来进行
 
 $this->title = 'Contact';
 $this->params['breadcrumbs'][] = $this->title;
@@ -25,6 +26,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?= $form->field($model, 'name')->textInput(['autofocus' => true]) ?>
 
                 <?= $form->field($model, 'email') ?>
+            <?= $form->field($model, 'submitDatetime')
+            ?>
 
                 <?= $form->field($model, 'subject') ?>
 
@@ -35,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]) ?>
 
                 <div class="form-group">
-                    <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
+                    <?= Html::submitButton('提交', ['class' => 'btn btn-primary', 'name' => 'contact-button']) ?>
                 </div>
 
             <?php ActiveForm::end(); ?>

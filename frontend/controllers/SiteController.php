@@ -1,6 +1,7 @@
 <?php
 namespace frontend\controllers;
 
+
 use Yii;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
@@ -12,7 +13,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use frontend\models\DiaochaForm;
 /**
  * Site controller
  */
@@ -26,10 +27,15 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout', 'signup'],
+                'only' => ['logout', 'signup', 'diaocha'],
                 'rules' => [
                     [
                         'actions' => ['signup'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                    [
+                        'actions' => ['diaocha'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -115,7 +121,7 @@ class SiteController extends Controller
      */
     public function actionContact()
     {
-        $model = new ContactForm();
+        $model = new ContactForm();//实例化ContactForm对象
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
@@ -161,7 +167,33 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+    /**
+     * 调查表逻辑处理.
+     *
+     * @return mixed
+     */
+    public function actionDiaocha()
+    {
+        $model = new DiaochaForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate() ) //
+        {
+            if ($diaocha = $model->diaocha()) {
+                Yii::$app->session->setFlash('success', '感谢您的填写.');
+                    return $this->goHome();
 
+            }
+            else
+            {
+//                print_r($model->errors);exit;
+
+                Yii::$app->session->setFlash('failed', '提交数据错误actionDiaocha11.');
+            }
+        }
+
+        return $this->render('diaocha', [
+            'model' => $model,
+        ]);
+    }
     /**
      * Requests password reset.
      *
