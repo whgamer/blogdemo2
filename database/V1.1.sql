@@ -1,6 +1,6 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.3.13.3
--- http://www.phpmyadmin.net
+-- http://www.phpmyadmin.net   测试修改
 --
 -- Host: localhost
 -- Generation Time: 2016-05-07 05:33:45
